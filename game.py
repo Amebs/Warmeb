@@ -34,6 +34,7 @@ def main():
         screen.blit(bg, (0, 0))
 
         test(screen)
+	x=x+60
 
         pygame.display.update()
 
