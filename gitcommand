@@ -1,0 +1,14 @@
+git add "file" //добавление в индесацию гитом нового файла
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+git clone https://github.com/Amebs/Warmeb.git "/каталог" //скачать в локальный репозиторий
+
+git commit -m "comment" //создать коммит
+git push -u origin master //залить изменения в удаленный репозиторий
+
+git show // посмотреть изменения
+git show --name-only // измененные файлы
+git log // последние коммиты
+git pull // обновиться с удаленного репозитория
