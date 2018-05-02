@@ -9,14 +9,16 @@ bag_color = "#004400"
 hex_color_1 = [200, 200, 200, 200]
 hex_color_2 = [10, 30, 70, 100]
 black = [200, 200, 200]
-#global radius
+global radius
 radius = 10
 fat = 1
 point = [0, 0]
 point_new = [0, 0]
-point_new[0] = 0#4*radiu    s * 3 / 2
-point_new[1] = 0#4*2 * (math.sqrt(3) / 2 * radius)
+point_new[0] = 4*radius * 3 / 2
+point_new[1] = 4*2 * (math.sqrt(3) / 2 * radius)
 startxy = [0, 0]
+global zaliv
+zaliv = int((math.sqrt(3) * radius / 2)+2)
 
 ####123
 def draw_hexapod(screen, point, radius):
@@ -119,7 +121,7 @@ def main():
        field(screen, point, radius, hex_color_2)
        fat = 3
        draw_hexapod(screen, point_new, radius)
-       pygame.draw.circle(screen, hex_color_1, [int(point_new[0]), int(point_new[1])], 5)
+       pygame.draw.circle(screen, hex_color_1, [int(point_new[0]), int(point_new[1])], zaliv)
        point[0] = 0 # x
        point[1] = 0 # y
        pygame.display.update()
