@@ -119,6 +119,7 @@ def main():
        field(screen, point, radius, hex_color_2)
        fat = 3
        draw_hexapod(screen, point_new, radius)
+       pygame.draw.circle(screen, hex_color_1, [int(point_new[0]), int(point_new[1])], 5)
        point[0] = 0 # x
        point[1] = 0 # y
        pygame.display.update()
