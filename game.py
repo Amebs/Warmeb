@@ -9,15 +9,16 @@ bag_color = "#004400"
 hex_color_1 = [200, 200, 200, 200]
 hex_color_2 = [10, 30, 70, 100]
 black = [200, 200, 200]
+#global radius
 radius = 10
 fat = 1
 point = [0, 0]
 point_new = [0, 0]
-point_new[0] = 0#4*radius * 3 / 2
+point_new[0] = 0#4*radiu    s * 3 / 2
 point_new[1] = 0#4*2 * (math.sqrt(3) / 2 * radius)
 startxy = [0, 0]
 
-
+####123
 def draw_hexapod(screen, point, radius):
     hexagon = []
     for i in range(0, 6):
@@ -100,13 +101,13 @@ def main():
 
            if e.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[0]:
                #left mouse button
-               global radius
+               radius
                radius=radius+10
 
                break
            if e.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[2]:
                #right mouse button
-               global radius
+               radius
                if radius>10:
                    radius = radius-10
 
