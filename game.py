@@ -92,8 +92,8 @@ def main():
                    point_new[1] += (math.sqrt(3) / 2 * radius)
 
                if e.key == pygame.K_DELETE:
-                   point_new[0] -= 3*radius/2
-                   point_new[1] += (math.sqrt(3) / 2 * radius)
+                   kx = kx - 1
+                   ky = ky - 1
 
                if e.key == pygame.K_DOWN:
                    ky = ky + 1
@@ -116,6 +116,7 @@ def main():
                #left mouse button
                radius
                radius=radius+10
+               fat = fat + 2
 
                break
            if e.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[2]:
@@ -123,6 +124,7 @@ def main():
                radius
                if radius>10:
                    radius = radius-10
+                   fat = fat - 2
 
                #field(screen, point, radius)
                #startxy[0] += 50
@@ -130,7 +132,8 @@ def main():
                break
        screen.blit(bg, startxy)
        field(screen, point, radius, hex_color_2)
-       fat = 3
+       #fat = 3
+       zaliv = int((math.sqrt(3) * radius / 2) + 1)
        point_new[0] = kx * radius * 3 / 2
        point_new[1] = ky * 2 * (math.sqrt(3) / 2 * radius)
        draw_hexapod(screen, point_new, radius)
