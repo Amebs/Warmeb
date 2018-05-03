@@ -14,11 +14,16 @@ radius = 10
 fat = 1
 point = [0, 0]
 point_new = [0, 0]
-point_new[0] = 4*radius * 3 / 2
-point_new[1] = 4*2 * (math.sqrt(3) / 2 * radius)
+global kx
+global ky
+kx = 4
+ky = 4
+point_new[0] = kx*radius * 3 / 2
+point_new[1] = ky*2 * (math.sqrt(3) / 2 * radius)
 startxy = [0, 0]
 global zaliv
-zaliv = int((math.sqrt(3) * radius / 2)+2)
+zaliv = int((math.sqrt(3) * radius / 2)+1)
+
 
 ####123
 def draw_hexapod(screen, point, radius):
@@ -76,6 +81,8 @@ def main():
                global point_new
                global radius
                global fat
+               global kx
+               global ky
 
                if e.key == pygame.K_END:
                    bg.fill(Color("#55ffff"))
@@ -89,17 +96,21 @@ def main():
                    point_new[1] += (math.sqrt(3) / 2 * radius)
 
                if e.key == pygame.K_DOWN:
-                   point_new[1] += 2 * (math.sqrt(3) / 2 * radius)
+                   ky = ky + 1
+                   #point_new[1] += 2 * (math.sqrt(3) / 2 * radius)
 
                if e.key == pygame.K_UP:
-                   point_new[1] -= 2 * (math.sqrt(3) / 2 * radius)
+                   ky = ky - 1
+                   #point_new[1] -= 2 * (math.sqrt(3) / 2 * radius)
 
 
                if e.key == pygame.K_RIGHT:
-                   point_new[0] += 3*radius
+                   kx = kx + 2
+                   #point_new[0] += 3*radius
 
                if e.key == pygame.K_LEFT:
-                   point_new[0] -= 3*radius
+                   kx = kx - 2
+                   #point_new[0] -= 3*radius
 
            if e.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[0]:
                #left mouse button
@@ -120,6 +131,8 @@ def main():
        screen.blit(bg, startxy)
        field(screen, point, radius, hex_color_2)
        fat = 3
+       point_new[0] = kx * radius * 3 / 2
+       point_new[1] = ky * 2 * (math.sqrt(3) / 2 * radius)
        draw_hexapod(screen, point_new, radius)
        pygame.draw.circle(screen, hex_color_1, [int(point_new[0]), int(point_new[1])], zaliv)
        point[0] = 0 # x
